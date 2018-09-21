@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>appointment-list</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid no-padding>
+    <ion-row>
+
+      <ion-col col-12 col-md-4 push-md-8>
+          <agm-map *ngIf="selectedAppointment" [latitude]="selectedAppointment.address.coordinate.lat" [longitude]="selectedAppointment.address.coordinate.lng">
+            <agm-marker [latitude]="selectedAppointment.address.coordinate.lat" [longitude]="selectedAppointment.address.coordinate.lng"></agm-marker>
+          </agm-map>
+      </ion-col> 
+
+      <ion-col col-12 col-md-8 pull-md-4>
+          <ion-card *ngFor="let appointment of appointments" [ngClass]="selectedAppointment == appointment ? 'selected' : ''" (click)="onSelectCard(appointment)">
+            <ion-item>
+              <ion-avatar item-start>
+                <img [src]="appointment.doctor.avatar" [alt]="appointment.doctor.name">                
+              </ion-avatar>
+              <ion-grid no-padding>
+                <ion-row>
+                  <ion-col>
+                      <h2>{{appointment.doctor.name}}</h2>
+                      <p>{{appointment.address.line1}}</p>
+                      <p>{{appointment.address.index}}</p>
+                      <p>{{appointment.address.city}}</p>
+                  </ion-col>
+                  <ion-col>
+                    <schedule-table></schedule-table>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              
+            </ion-item>
+          </ion-card>
+      </ion-col>
+
+     
+      
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>

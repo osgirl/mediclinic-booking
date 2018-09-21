@@ -1,0 +1,19 @@
+page-appointment-list {
+    agm-map {
+        height: 250px;
+    }
+
+    @media only screen and (min-width: 758px) {
+        agm-map {
+            height: 100%;
+        }
+    }
+
+    .selected{
+        border:1px solid #0596de;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    ion-card{
+        border-radius: 8px !important;       
+    }
+}

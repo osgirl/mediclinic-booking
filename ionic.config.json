@@ -1,0 +1,7 @@
+{
+  "name": "mediclinic_booking",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
